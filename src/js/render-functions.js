@@ -16,11 +16,11 @@ export function createGallery(images) {
       <li class="gallery__item">
         <a class="gallery__link" href="${img.largeImageURL}">
           <div class="photo-card">
-            <img 
-              class="photo-card__image" 
-              src="${img.webformatURL}" 
-              alt="${img.tags}" 
-              loading="lazy" 
+            <img
+              class="photo-card__image"
+              src="${img.webformatURL}"
+              alt="${img.tags}"
+              loading="lazy"
             />
             <div class="info">
               <p class="info-item">
@@ -48,7 +48,6 @@ export function createGallery(images) {
     .join('');
 
   galleryEl.insertAdjacentHTML('beforeend', markup);
-
   lightbox.refresh();
 }
 
@@ -72,5 +71,19 @@ export function hideLoader() {
   if (loader) {
     loader.classList.remove('is-active');
     loader.setAttribute('aria-hidden', 'true');
+  }
+}
+
+export function showLoadMoreButton() {
+  const loadMoreBtn = document.querySelector('.load-more');
+  if (loadMoreBtn) {
+    loadMoreBtn.classList.add('is-visible');
+  }
+}
+
+export function hideLoadMoreButton() {
+  const loadMoreBtn = document.querySelector('.load-more');
+  if (loadMoreBtn) {
+    loadMoreBtn.classList.remove('is-visible');
   }
 }
